@@ -1,0 +1,73 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hi
+    - hello
+    - xin chào
+    - chào shop
+    - shop ơi
+    - anh ơi
+    - chị ơi
+    - em ơi
+    - ad ơi
+    - chào ad
+    - mình cần tư vấn
+    - cho mình hỏi xíu
+    - xin chào shop
+
+- intent: ask_price
+  examples: |
+    - [Mô hình 3d](product) giá sao vậy shop 
+    - [Mô hình tượng đá](product) giá sao vậy shop   
+    - [Bàn học](product) giá sao vậy shop    
+    - [Kệ sách gỗ 2 tầng](product) giá sao vậy shop   
+    - [Kệ sách trang trí](product) giá sao vậy shop    
+    - [Mô hình siêu nhân](product) giá sao vậy shop
+
+- intent: ask_size
+  examples: |
+    - [Mô hình 3d](product) kích thước sao shop
+    - [Mô hình tượng đá](product) kích thước sao shop
+    - [Bàn học](product) kích thước sao shop
+    - [Kệ sách gỗ 2 tầng](product) kích thước sao shop
+    - [Kệ sách trang trí](product) kích thước sao shop
+    - [Mô hình siêu nhân](product) kích thước sao shop
+    - cho mình xin kích thước [Mô hình 3d](product)
+    - cho mình xin kích thước [Mô hình tượng đá](product)
+    - cho mình xin kích thước [Bàn học](product)
+    - cho mình xin kích thước [Kệ sách gỗ 2 tầng](product)
+    - cho mình xin kích thước [Kệ sách trang trí](product)
+    - cho mình xin kích thước [Mô hình siêu nhân](product)
+    
+- intent: ask_product_detail
+  examples: |
+    - cho mình xin thông số [Mô hình 3d](product) với shop
+    - cho mình xin thông số [Mô hình tượng đá](product) với shop 
+    - cho mình xin thông số [Bàn học](product) với shop
+    - cho mình xin thông số [Kệ sách gỗ 2 tầng](product) với shop
+    - cho mình xin thông số [Kệ sách trang trí](product) với shop
+    - cho mình xin thông số [Mô hình siêu nhân](product) với shop
+    - tư vấn [Mô hình 3d](product) giúp mình
+    - tư vấn [Mô hình tượng đá](product) giúp mình
+    - tư vấn [Bàn học](product) giúp mình
+    - tư vấn [Kệ sách gỗ 2 tầng](product) giúp mình
+    - tư vấn [Kệ sách trang trí](product) giúp mình
+    - tư vấn [Mô hình siêu nhân](product) giúp mình
+    - mình cần tư vấn [Mô hình 3d](product) 
+    - mình cần tư vấn [Mô hình tượng đá](product) 
+    - mình cần tư vấn [Bàn học](product)
+    - mình cần tư vấn [Kệ sách gỗ 2 tầng](product)
+    - mình cần tư vấn [Kệ sách trang trí](product)
+    - mình cần tư vấn [Mô hình siêu nhân](product)
+- intent: give_name
+  examples: |
+    - [Anh](cust_sex) tên [Thời](cust_name)
+    - [Chị](cust_sex) là [Hằng](cust_name)
+
+- intent: goodbye
+  examples: |
+    - chào tạm biệt em
+    - bye shop
+    - mình quay lại sau
+    - mình trả lời shop sau nhé

@@ -1,0 +1,71 @@
+version: "2.0"
+
+# Bên NLU có những intent nào thì khai báo hết vào đây
+intents:
+  - greet
+  - give_name
+  - choice_category
+  - ask_price
+  - goodbye
+  - request
+
+
+actions:
+  - action_detail_product ## Thông tin chi tiết sản phẩm
+  - action_price ## Thông tin về giá
+  - action_size ## Thông tin về kích thước
+  - action_show_product
+  - action_show_category
+
+entities:
+  - cust_sex
+  - cust_name
+  - product_category
+  - product
+
+slots:
+  cust_sex:
+    auto_fill: true
+    type: text
+    initial_value: null
+  cust_name:
+    auto_fill: true
+    type: text
+  product_category:
+    auto_fill: true
+    type: text
+  product:
+    auto_fill: true
+    type: text
+
+
+responses:
+  utter_greet:
+    - text: "Art Decor chào Quý khách! Để tiện hỗ trợ, Quý khách vui lòng cung cấp tên sản phẩm cần tư vấn để bộ phận bán hàng nắm thông tin ạ!"
+
+  utter_rep_choice_product:
+    - text: "Shop gửi thông tin cụ thể để bạn tham khảo sản phẩm {product} này nhé!"
+  
+  utter_rep_price:
+    - text: "Sản phẩm này shop đang bán với giá {price} bạn nhé"
+    - text: "Sản phẩm này giá chỉ {price}"
+    - text: "Bên mình đang bán với giá {price}"
+  
+  utter_rep_size:
+    - text: "Sản phẩm có kích thước {size}"
+    - text: "Kích thước mặc định của sản phẩm là {size}"
+    - text: "Shop gửi thông tin về kích thước để bạn tiện tham khảo nhé: {size}"
+
+  utter_goodbye:
+    - text: "Art Decor cảm ơn Quý khách đã tin dùng, hẹn gặp lại Quý khách!"
+    - text: "Art Decor chúc quý khách một ngày tốt lành!"
+
+  utter_ask_request:
+    - text: "Bạn cần tư vấn về sản phẩm nào bên shop !"
+  
+  utter_givename:
+    - text: "Chào {cust_sex} {cust_name}. Shop có thể giúp gì cho {cust_name} ? "
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
