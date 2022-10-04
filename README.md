@@ -1,4 +1,9 @@
-## command
+## Version
+python 3.7.0
+rasa 2.8.2
+## Setup
+Create Env: python -m venv env
+
 
 python -m venv env
 .\env\Scripts\activate
