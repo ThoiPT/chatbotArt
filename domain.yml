@@ -13,7 +13,7 @@ intents:
 actions:
   - action_detail_product ## Thông tin chi tiết sản phẩm
   - action_price ## Thông tin về giá
-  - action_size ## Thông tin về kích thước
+  # - action_size ## Thông tin về kích thước
   - action_show_product
   - action_show_category
 
@@ -22,6 +22,7 @@ entities:
   - cust_name
   - product_category
   - product
+  - attribute
 
 slots:
   cust_sex:
@@ -37,7 +38,6 @@ slots:
   product:
     auto_fill: true
     type: text
-
 
 responses:
   utter_greet:

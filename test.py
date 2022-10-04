@@ -5,8 +5,12 @@
 
 # print(currency)
 
-a = None
-if a is None:
-    print("None")
-else:
-    print("OK")
+listofTp = ['aaa', 'ddd', 'sss']
+s = 'aaa'
+
+# result = listofTp[int(s)]
+# print(result)
+
+for i in listofTp:
+    if i == s:
+        print(s)

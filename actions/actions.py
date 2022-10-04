@@ -50,19 +50,37 @@ class action_price(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-            product_choice = tracker.latest_message['entities'][0]['value'] ## get Entities
+            product = str(tracker.latest_message['entities'][0]['value']) ## get Entitiess
+            try:               
+                attribute = str(tracker.latest_message['entities'][1]['value']) ## get Entitiess
+            except:
+                attribute = "Lỗi"
+           
+            print("- product: " + product + "\n - nattribute: " + attribute)
+
             ## MySQL query connect
             mycursor = connect.cursor()    
-            sqlQuery = "SELECT sellPrice FROM products WHERE name LIKE '{}'".format(product_choice) 
+            sqlQuery = "SELECT sellPrice FROM products WHERE name LIKE '{}'".format(product) 
             mycursor.execute(sqlQuery)
             results = mycursor.fetchall()
 
-            price = results[0][0] ## Lấy giá tiền
-            format_price = "{:,.0f}đ".format(price) ## Xử lý giá tiền  
+            # Định nghĩa keyword hỏi về giá
+            listOfAttr = ['giá', 'giá sao', 'bán sao', 'nhiêu tiền']
+            inputKey = attribute
 
-            dispatcher.utter_message(response="utter_rep_price", price=format_price)
-                 
+            for i in listOfAttr:
+                if i == inputKey:
+                    attribute = inputKey
+                else:
+                    attribute = ""
 
+            if attribute:
+                price = results[0][0] ## Lấy giá tiền
+                format_price = "{:,.0f}đ".format(price) ## Xử lý giá tiền
+                dispatcher.utter_message(response="utter_rep_price", price=format_price)
+            else:
+                dispatcher.utter_message("Mình chưa hiểu ý bạn cần, bạn có thể nói rõ hơn không!")
+        
             return []
 
 class action_size(Action):
@@ -74,7 +92,7 @@ class action_size(Action):
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
             product_choice = tracker.latest_message['entities'][0]['value'] ## get Entities
-            print(product_choice)
+            # print(product_choice)
             ## MySQL query connect
             mycursor = connect.cursor()    
             sqlQuery = "SELECT size FROM products WHERE name LIKE '{}'".format(product_choice) 

@@ -12,10 +12,10 @@ rules:
       - intent: ask_price
       - action: action_price
   
-  - rule: Khách hàng hỏi kích thước sản phẩm
-    steps:
-      - intent: ask_size
-      - action: action_size
+  # - rule: Khách hàng hỏi kích thước sản phẩm
+  #   steps:
+  #     - intent: ask_size
+  #     - action: action_size
 
   - rule: Tạm biệt
     steps:
