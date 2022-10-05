@@ -12,6 +12,8 @@ from typing import Any, Text, Dict, List
 import mysql.connector
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
+from regex import S
+from sqlalchemy import null
 #
 #
 from actions.db_connect import DataProduct
@@ -50,37 +52,31 @@ class action_price(Action):
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-            product = str(tracker.latest_message['entities'][0]['value']) ## get Entitiess
-            try:               
-                attribute = str(tracker.latest_message['entities'][1]['value']) ## get Entitiess
+            try:
+                product = str(tracker.latest_message['entities'][0]['value']) ## get Entitiess
             except:
-                attribute = "Lỗi"
-           
-            print("- product: " + product + "\n - nattribute: " + attribute)
+                product = "null"
 
-            ## MySQL query connect
-            mycursor = connect.cursor()    
-            sqlQuery = "SELECT sellPrice FROM products WHERE name LIKE '{}'".format(product) 
-            mycursor.execute(sqlQuery)
-            results = mycursor.fetchall()
+            print(product)  
 
-            # Định nghĩa keyword hỏi về giá
-            listOfAttr = ['giá', 'giá sao', 'bán sao', 'nhiêu tiền']
-            inputKey = attribute
-
-            for i in listOfAttr:
-                if i == inputKey:
-                    attribute = inputKey
-                else:
-                    attribute = ""
-
-            if attribute:
-                price = results[0][0] ## Lấy giá tiền
-                format_price = "{:,.0f}đ".format(price) ## Xử lý giá tiền
-                dispatcher.utter_message(response="utter_rep_price", price=format_price)
+            ## Nếu sản phẩm không tồn tại trong csdl
+            if product == "null":
+                dispatcher.utter_message("Sản phẩm này bên shop không kinh doanh bạn nhé, bạn có thể tham khảo thêm các sản phẩm ở trang chủ")
             else:
-                dispatcher.utter_message("Mình chưa hiểu ý bạn cần, bạn có thể nói rõ hơn không!")
-        
+                ## MySQL query connect
+                mycursor = connect.cursor()    
+                sqlQuery = "SELECT name, sellPrice FROM products WHERE name LIKE '{}'".format(product) 
+                mycursor.execute(sqlQuery)
+                results = mycursor.fetchall()        
+
+                for i in results:            
+                    if i[0].lower() == product.lower():
+                        price = results[0][1] ## Lấy giá tiền
+                        format_price = "{:,.0f}đ".format(price) ## Xử lý giá tiền
+                    else:
+                        dispatcher.utter_message("Sản phẩm này bên shop không kinh doanh bạn nhé, bạn có thể tham khảo thêm các sản phẩm ở trang chủ")
+                        
+                    dispatcher.utter_message(response="utter_rep_price", price=format_price)
             return []
 
 class action_size(Action):
@@ -90,20 +86,28 @@ class action_size(Action):
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-
-            product_choice = tracker.latest_message['entities'][0]['value'] ## get Entities
-            # print(product_choice)
-            ## MySQL query connect
-            mycursor = connect.cursor()    
-            sqlQuery = "SELECT size FROM products WHERE name LIKE '{}'".format(product_choice) 
-            mycursor.execute(sqlQuery)
-            results = mycursor.fetchall()
-
-            size = results[0][0] ## Lấy giá tiền  
-            if product_choice:
-                dispatcher.utter_message(response="utter_rep_size", size = size) 
+            
+            try:
+                product = tracker.latest_message['entities'][0]['value'] ## get Entities
+            except:
+                product = "null"
+            
+            if product == "null":
+                dispatcher.utter_message("Bạn cần xem kích thước của sản phẩm nào vậy ạ ?")
             else:
-                dispatcher.utter_message("sorry") 
+
+                ## MySQL query connect
+                mycursor = connect.cursor()    
+                sqlQuery = "SELECT name, size FROM products WHERE name LIKE '{}'".format(product) 
+                mycursor.execute(sqlQuery)
+                results = mycursor.fetchall()
+
+                size = results[0][1] ## Lấy kích thước
+                for i in results: 
+                    if i[0].lower() == product.lower():
+                        dispatcher.utter_message(response="utter_rep_size", size = size) 
+                    else:
+                        dispatcher.utter_message("Bạn cần xem kích thước của sản phẩm nào vậy ạ ?")
             return []
 
 # # --------------------------------------------------------------------------

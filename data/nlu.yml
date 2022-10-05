@@ -18,51 +18,100 @@ nlu:
 
 - intent: ask_price
   examples: |
-    - [Mô hình 3d](product) [giá](attribute) sao vậy shop
-    - [Mô hình 3d](product) [giá bán](attribute) sao vậy shop
-    - [Mô hình 3d](product) [bán sao](attribute) sao vậy shop
-    - [Mô hình 3d](product) [nhiêu tiền](attribute) sao vậy shop
-    
-    - [Mô hình 3d](product) [kích thước](attribute) sao shop
-    - [Mô hình 3d](product) [cân nặng](attribute) sao shop
-    - [Mô hình 3d](product) [thông tin](attribute) sao shop
-    - [Mô hình 3d](product) [số lượng](attribute) sao shop
+    - [Mô hình tượng đá](product) giá sao vậy shop
+    - [Mô hình tượng đá](product) bán sao vậy shop
+    - [Mô hình tượng đá](product) shop bán sao ạ
+    - [Mô hình tượng đá](product) nhiêu tiền ạ
+    - xin giá [Mô hình tượng đá](product) 
+    - mình xin giá [Mô hình tượng đá](product)
+    - em xin giá [Mô hình tượng đá](product)
+    - cho mình xin giá [Mô hình tượng đá](product)
+    - cho e hỏi [Mô hình tượng đá](product) bao nhiêu vậy ạ 
+    - [Hộp bút trong suốt](product) giá sao vậy shop
+    - [Hộp bút trong suốt](product) bán sao vậy shop
+    - [Hộp bút trong suốt](product) shop bán sao ạ
+    - [Hộp bút trong suốt](product) nhiêu tiền ạ
+    - xin giá [Hộp bút trong suốt](product) 
+    - mình xin giá [Hộp bút trong suốt](product)
+    - em xin giá [Hộp bút trong suốt](product)
+    - cho mình xin giá [Hộp bút trong suốt](product)
+    - cho e hỏi [Hộp bút trong suốt](product) bao nhiêu vậy ạ
+    - [Bình giữ nhiệt](product) giá sao vậy shop
+    - [Bình giữ nhiệt](product) bán sao vậy shop
+    - [Bình giữ nhiệt](product) shop bán sao ạ
+    - [Bình giữ nhiệt](product) nhiêu tiền ạ
+    - xin giá [Bình giữ nhiệt](product) 
+    - mình xin giá [Bình giữ nhiệt](product)
+    - em xin giá [Bình giữ nhiệt](product)
+    - cho mình xin giá [Bình giữ nhiệt](product)
+    - cho e hỏi [Bình giữ nhiệt](product) bao nhiêu vậy ạ
+    - [Xương rồng 3 màu](product) giá sao vậy shop
+    - [Xương rồng 3 màu](product) bán sao vậy shop
+    - [Xương rồng 3 màu](product) shop bán sao ạ
+    - [Xương rồng 3 màu](product) nhiêu tiền ạ
+    - xin giá [Xương rồng 3 màu](product) 
+    - mình xin giá [Xương rồng 3 màu](product)
+    - em xin giá [Xương rồng 3 màu](product)
+    - cho mình xin giá [Xương rồng 3 màu](product)
+    - cho e hỏi [Xương rồng 3 màu](product) bao nhiêu vậy ạ  
+    - [Xương rồng nhỏ](product) giá sao vậy shop
+    - [Xương rồng nhỏ](product) bán sao vậy shop
+    - [Xương rồng nhỏ](product) shop bán sao ạ
+    - [Xương rồng nhỏ](product) nhiêu tiền ạ
+    - xin giá [Xương rồng nhỏ](product) 
+    - mình xin giá [Xương rồng nhỏ](product)
+    - em xin giá [Xương rồng nhỏ](product)
+    - cho mình xin giá [Xương rồng nhỏ](product)
+    - cho e hỏi [Xương rồng nhỏ](product) bao nhiêu vậy ạ  
 
-# - intent: ask_size
-#   examples: |
-#     - [Mô hình 3d](product) kích thước sao shop
-#     - [Mô hình tượng đá](product) kích thước sao shop
-#     - [Bàn học](product) kích thước sao shop
-#     - [Kệ sách gỗ 2 tầng](product) kích thước sao shop
-#     - [Kệ sách trang trí](product) kích thước sao shop
-#     - [Mô hình siêu nhân](product) kích thước sao shop
-#     - cho mình xin kích thước [Mô hình 3d](product)
-#     - cho mình xin kích thước [Mô hình tượng đá](product)
-#     - cho mình xin kích thước [Bàn học](product)
-#     - cho mình xin kích thước [Kệ sách gỗ 2 tầng](product)
-#     - cho mình xin kích thước [Kệ sách trang trí](product)
-#     - cho mình xin kích thước [Mô hình siêu nhân](product)
-    
-- intent: ask_product_detail
+- intent: ask_size
   examples: |
-    - cho mình xin thông số [Mô hình 3d](product) với shop
-    - cho mình xin thông số [Mô hình tượng đá](product) với shop 
-    - cho mình xin thông số [Bàn học](product) với shop
-    - cho mình xin thông số [Kệ sách gỗ 2 tầng](product) với shop
-    - cho mình xin thông số [Kệ sách trang trí](product) với shop
-    - cho mình xin thông số [Mô hình siêu nhân](product) với shop
-    - tư vấn [Mô hình 3d](product) giúp mình
-    - tư vấn [Mô hình tượng đá](product) giúp mình
-    - tư vấn [Bàn học](product) giúp mình
-    - tư vấn [Kệ sách gỗ 2 tầng](product) giúp mình
-    - tư vấn [Kệ sách trang trí](product) giúp mình
-    - tư vấn [Mô hình siêu nhân](product) giúp mình
-    - mình cần tư vấn [Mô hình 3d](product) 
-    - mình cần tư vấn [Mô hình tượng đá](product) 
-    - mình cần tư vấn [Bàn học](product)
-    - mình cần tư vấn [Kệ sách gỗ 2 tầng](product)
-    - mình cần tư vấn [Kệ sách trang trí](product)
-    - mình cần tư vấn [Mô hình siêu nhân](product)
+    - [Mô hình tượng đá](product) kích thước sao shop
+    - xin kích thước [Mô hình tượng đá](product)
+    - mình xin kích thước [Mô hình tượng đá](product)
+    - em xin kích thước [Mô hình tượng đá](product)
+    - cho mình xin kích thước [Mô hình tượng đá](product)
+    - [Hộp bút trong suốt](product) kích thước sao shop
+    - xin kích thước [Hộp bút trong suốt](product)
+    - mình xin kích thước [Hộp bút trong suốt](product)
+    - em xin kích thước [Hộp bút trong suốt](product)
+    - cho mình xin kích thước [Hộp bút trong suốt](product)
+    - [Bình giữ nhiệt](product) kích thước sao shop
+    - xin kích thước [Bình giữ nhiệt](product)
+    - mình xin kích thước [Bình giữ nhiệt](product)
+    - em xin kích thước [Bình giữ nhiệt](product)
+    - cho mình xin kích thước [Bình giữ nhiệt](product)
+    - [Xương rồng 3 màu](product) kích thước sao shop
+    - xin kích thước [Xương rồng 3 màu](product)
+    - mình xin kích thước [Xương rồng 3 màu](product)
+    - em xin kích thước [Xương rồng 3 màu](product)
+    - cho mình xin kích thước [Xương rồng 3 màu](product)
+    - [Xương rồng nhỏ](product) kích thước sao shop
+    - xin kích thước [Xương rồng nhỏ](product)
+    - mình xin kích thước [Xương rồng nhỏ](product)
+    - em xin kích thước [Xương rồng nhỏ](product)
+    - cho mình xin kích thước [Xương rồng nhỏ](product)
+    
+# - intent: ask_product_detail
+#   examples: |
+#     - cho mình xin thông số [Mô hình tượng đá](product) với shop
+#     - cho mình xin thông số [Mô hình tượng đá](product) với shop 
+#     - cho mình xin thông số [Bàn học](product) với shop
+#     - cho mình xin thông số [Kệ sách gỗ 2 tầng](product) với shop
+#     - cho mình xin thông số [Kệ sách trang trí](product) với shop
+#     - cho mình xin thông số [Mô hình siêu nhân](product) với shop
+#     - tư vấn [Mô hình tượng đá](product) giúp mình
+#     - tư vấn [Mô hình tượng đá](product) giúp mình
+#     - tư vấn [Bàn học](product) giúp mình
+#     - tư vấn [Kệ sách gỗ 2 tầng](product) giúp mình
+#     - tư vấn [Kệ sách trang trí](product) giúp mình
+#     - tư vấn [Mô hình siêu nhân](product) giúp mình
+#     - mình cần tư vấn [Mô hình tượng đá](product) 
+#     - mình cần tư vấn [Mô hình tượng đá](product) 
+#     - mình cần tư vấn [Bàn học](product)
+#     - mình cần tư vấn [Kệ sách gỗ 2 tầng](product)
+#     - mình cần tư vấn [Kệ sách trang trí](product)
+#     - mình cần tư vấn [Mô hình siêu nhân](product)
 - intent: give_name
   examples: |
     - [Anh](cust_sex) tên [Thời](cust_name)

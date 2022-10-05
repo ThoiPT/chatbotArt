@@ -8,12 +8,13 @@ intents:
   - ask_price
   - goodbye
   - request
+  - ask_size
 
 
 actions:
-  - action_detail_product ## Thông tin chi tiết sản phẩm
+  # - action_detail_product ## Thông tin chi tiết sản phẩm
   - action_price ## Thông tin về giá
-  # - action_size ## Thông tin về kích thước
+  - action_size ## Thông tin về kích thước
   - action_show_product
   - action_show_category
 
@@ -52,8 +53,8 @@ responses:
     - text: "Bên mình đang bán với giá {price}"
   
   utter_rep_size:
-    - text: "Sản phẩm có kích thước {size}"
-    - text: "Kích thước mặc định của sản phẩm là {size}"
+    - text: "Sản phẩm {product} có kích thước: {size}"
+    - text: "Kích thước mặc định của {product} là {size}"
     - text: "Shop gửi thông tin về kích thước để bạn tiện tham khảo nhé: {size}"
 
   utter_goodbye:

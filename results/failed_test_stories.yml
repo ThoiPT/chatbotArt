@@ -1,0 +1,52 @@
+version: "2.0"
+stories:
+- story: sad path 1 (.\tests\test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_listen  # predicted: utter_ask_request
+  - intent: mood_unhappy  # predicted: greet: not good
+  - action: utter_cheer_up  # predicted: action_price
+  - action: utter_did_that_help  # predicted: action_listen
+  - intent: affirm  # predicted: goodbye: yes
+  - action: utter_happy  # predicted: action_price
+- story: sad path 2 (.\tests\test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_listen  # predicted: utter_ask_request
+  - intent: mood_unhappy  # predicted: greet: not good
+  - action: utter_cheer_up  # predicted: action_price
+  - action: utter_did_that_help  # predicted: action_listen
+  - intent: deny  # predicted: greet: not really
+  - action: utter_goodbye  # predicted: action_price
+- story: sad path 3 (.\tests\test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_listen  # predicted: utter_ask_request
+  - intent: mood_unhappy  # predicted: goodbye: very terrible
+  - action: utter_cheer_up  # predicted: action_price
+  - action: utter_did_that_help  # predicted: action_listen
+  - intent: deny  # predicted: greet: no
+  - action: utter_goodbye  # predicted: action_price
+- story: bot challenge (.\tests\test_stories.yml)
+  steps:
+  - intent: bot_challenge  # predicted: greet: are you a bot?
+  - action: utter_iamabot  # predicted: action_price
+- story: happy path 1 (.\env\Lib\site-packages\rasa\cli\initial_project\tests\test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_listen  # predicted: utter_ask_request
+  - intent: mood_great  # predicted: ask_price: amazing
+  - action: utter_happy  # predicted: action_price
+- story: happy path 2 (.\env\Lib\site-packages\rasa\cli\initial_project\tests\test_stories.yml)
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - action: action_listen  # predicted: utter_ask_request
+  - intent: mood_great  # predicted: ask_price: amazing
+  - action: utter_happy  # predicted: action_price
+  - intent: goodbye
+  - action: utter_goodbye
