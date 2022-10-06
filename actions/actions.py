@@ -44,85 +44,145 @@ class action_detail_product(Action):
         return []
         
 
-class action_price(Action):
+class action_ask_product(Action):
     def name(self) -> Text:
-        return "action_price"
+        return "action_ask_product"
     
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
             try:
-                product = str(tracker.latest_message['entities'][0]['value']) ## get Entitiess
+                product_slot = tracker.get_slot("product")
+                attr = tracker.get_slot("attr")
+    
             except:
-                product = "null"
+                product_slot = "null"
+                attr = "null"
+              
+            # attr_qty = tracker.get_slot("attr_qty")
+            print("Slot P: "+ product_slot)    
+            print("Attr: " + attr)
+            # print("Attr_Qty: " + attr_qty)
 
-            print(product)  
 
-            ## Nếu sản phẩm không tồn tại trong csdl
-            if product == "null":
-                dispatcher.utter_message("Sản phẩm này bên shop không kinh doanh bạn nhé, bạn có thể tham khảo thêm các sản phẩm ở trang chủ")
-            else:
-                ## MySQL query connect
-                mycursor = connect.cursor()    
-                sqlQuery = "SELECT name, sellPrice FROM products WHERE name LIKE '{}'".format(product) 
-                mycursor.execute(sqlQuery)
-                results = mycursor.fetchall()        
+            mycursor = connect.cursor()    
+            sqlQuery = "SELECT name, sellPrice FROM products WHERE name LIKE '{}'".format(product_slot) 
+            mycursor.execute(sqlQuery)
+            results = mycursor.fetchall()        
+            
+            ## Nếu để trống sản phẩm
+            for p in results:
+                if product_slot == "null":
+                    dispatcher.utter_message("Bạn cần hỏi sản phẩm nào vậy bạn, bạn gửi tên sản phẩm giúp mình với")
+                elif p[0].lower() != product_slot.lower():
+                    dispatcher.utter_message("Sản phẩm hiện chưa có trên Shop hoặc gửi sai tên sản phẩm")
+                else:
+                    ## MySQL query connect
+                    mycursor = connect.cursor()    
+                    sqlQuery = "SELECT name, sellPrice FROM products WHERE name LIKE '{}'".format(product_slot) 
+                    mycursor.execute(sqlQuery)
+                    results = mycursor.fetchall()        
 
-                for i in results:            
-                    if i[0].lower() == product.lower():
-                        price = results[0][1] ## Lấy giá tiền
-                        format_price = "{:,.0f}đ".format(price) ## Xử lý giá tiền
-                    else:
-                        dispatcher.utter_message("Sản phẩm này bên shop không kinh doanh bạn nhé, bạn có thể tham khảo thêm các sản phẩm ở trang chủ")
-                        
-                    dispatcher.utter_message(response="utter_rep_price", price=format_price)
+                    for i in results:            
+                        if i[0].lower() == product_slot.lower():
+                            price = results[0][1] ## Lấy giá tiền
+                            format_price = "{:,.0f}đ".format(price) ## Xử lý giá tiền
+                        else:
+                            dispatcher.utter_message("Sản phẩm này bên shop không kinh doanh bạn nhé, bạn có thể tham khảo thêm các sản phẩm ở trang chủ")
+                            
+                        dispatcher.utter_message(response="utter_rep_price", price=format_price)
+
             return []
 
-class action_size(Action):
+class action_ask_qty(Action):
     def name(self) -> Text:
-        return "action_size"
+        return "action_ask_qty"
         
     def run(self, dispatcher: CollectingDispatcher,
             tracker: Tracker,
             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
             
             try:
-                product = tracker.latest_message['entities'][0]['value'] ## get Entities
+                product_slot = tracker.get_slot("product")
+                attr_qty = tracker.get_slot("attr_qty")
             except:
-                product = "null"
+                product_slot = "null"
+                attr_qty = "null"
             
-            if product == "null":
-                dispatcher.utter_message("Bạn cần xem kích thước của sản phẩm nào vậy ạ ?")
+            if attr_qty == "null":
+                dispatcher.utter_message("Bạn cần hỏi gì ạ")
             else:
 
                 ## MySQL query connect
                 mycursor = connect.cursor()    
-                sqlQuery = "SELECT name, size FROM products WHERE name LIKE '{}'".format(product) 
+                sqlQuery = "SELECT name, quantity FROM products WHERE name LIKE '{}'".format(product_slot) 
                 mycursor.execute(sqlQuery)
                 results = mycursor.fetchall()
 
-                size = results[0][1] ## Lấy kích thước
+                # size = results[0][1] ## Lấy kích thước
                 for i in results: 
-                    if i[0].lower() == product.lower():
-                        dispatcher.utter_message(response="utter_rep_size", size = size) 
+                    if i[0].lower() == product_slot.lower():
+                        dispatcher.utter_message(response="utter_rep_qty") 
                     else:
-                        dispatcher.utter_message("Bạn cần xem kích thước của sản phẩm nào vậy ạ ?")
+                        dispatcher.utter_message("Bạn có thể nhắc lại giúp mình không ạ")
             return []
 
 # # --------------------------------------------------------------------------
-class action_show_product(Action):
+class action_ask_size(Action):
 
     def name(self) -> Text:
-        return "action_show_product"
+        return "action_ask_size"
 
     def run(self, dispatcher: "CollectingDispatcher",
             tracker: Tracker,
             domain: "Dict[Text, Any]") -> List[Dict[Text, Any]]:
-        # name_category = tracker.get_slot('name_category')
-        s = " "
-        products = DataProduct(tracker.get_slot("name_products"))
-        for p in products:
-            dispatcher.utter_message(s.join(p))
+        
+        product_slot = tracker.get_slot("product")
+        attr_size = tracker.get_slot("attr_size")
+
+        if attr_size:
+
+            mycursor = connect.cursor()    
+            sqlQuery = "SELECT name, size FROM products WHERE name LIKE '{}'".format(product_slot) 
+            mycursor.execute(sqlQuery)
+            results = mycursor.fetchall()
+
+            product = results[0][0]
+            size = results[0][1]
+
+            dispatcher.utter_message(response="utter_rep_size", size=size)
+        else:
+            dispatcher.utter_message("Bạn cần xem kích thước sản phẩm nào vậy")
 
         return []
+
+
+class action_ask_weight(Action):
+
+    def name(self) -> Text:
+        return "action_ask_weight"
+
+    def run(self, dispatcher: "CollectingDispatcher",
+            tracker: Tracker,
+            domain: "Dict[Text, Any]") -> List[Dict[Text, Any]]:
+        
+        product_slot = tracker.get_slot("product")
+        attr_weight = tracker.get_slot("attr_weight")
+
+        if attr_weight:
+
+            mycursor = connect.cursor()    
+            sqlQuery = "SELECT name, weight FROM products WHERE name LIKE '{}'".format(product_slot) 
+            mycursor.execute(sqlQuery)
+            results = mycursor.fetchall()
+
+            product = results[0][0]
+            weight = results[0][1]
+
+            dispatcher.utter_message(response="utter_rep_weight", weight=weight)
+        else:
+            dispatcher.utter_message("Bạn cần xem trọng lượng sản phẩm nào vậy")
+
+        return []
+

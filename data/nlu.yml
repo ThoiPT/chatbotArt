@@ -16,81 +16,148 @@ nlu:
     - cho mình hỏi xíu
     - xin chào shop
 
-- intent: ask_price
+
+- intent: ask_product
   examples: |
-    - [Mô hình tượng đá](product) giá sao vậy shop
-    - [Mô hình tượng đá](product) bán sao vậy shop
-    - [Mô hình tượng đá](product) shop bán sao ạ
-    - [Mô hình tượng đá](product) nhiêu tiền ạ
-    - xin giá [Mô hình tượng đá](product) 
-    - mình xin giá [Mô hình tượng đá](product)
-    - em xin giá [Mô hình tượng đá](product)
-    - cho mình xin giá [Mô hình tượng đá](product)
-    - cho e hỏi [Mô hình tượng đá](product) bao nhiêu vậy ạ 
-    - [Hộp bút trong suốt](product) giá sao vậy shop
-    - [Hộp bút trong suốt](product) bán sao vậy shop
-    - [Hộp bút trong suốt](product) shop bán sao ạ
-    - [Hộp bút trong suốt](product) nhiêu tiền ạ
-    - xin giá [Hộp bút trong suốt](product) 
-    - mình xin giá [Hộp bút trong suốt](product)
-    - em xin giá [Hộp bút trong suốt](product)
-    - cho mình xin giá [Hộp bút trong suốt](product)
-    - cho e hỏi [Hộp bút trong suốt](product) bao nhiêu vậy ạ
-    - [Bình giữ nhiệt](product) giá sao vậy shop
-    - [Bình giữ nhiệt](product) bán sao vậy shop
-    - [Bình giữ nhiệt](product) shop bán sao ạ
-    - [Bình giữ nhiệt](product) nhiêu tiền ạ
+    - [Mô hình tượng đá](product) [giá](attr) sao vậy shop
+    - [Mô hình tượng đá](product) [bán sao](attr) vậy shop
+    - [Mô hình tượng đá](product) shop [bán sao](attr) ạ
+    - [Mô hình tượng đá](product) [nhiêu tiền](attr) ạ
+    - xin [giá](attr) [Mô hình tượng đá](product) 
+    - mình xin [giá](attr) [Mô hình tượng đá](product)
+    - em xin [giá](attr) [Mô hình tượng đá](product)
+    - cho mình xin [giá](attr) [Mô hình tượng đá](product)
+    - cho e hỏi [Mô hình tượng đá](product) [bao nhiêu](attr) vậy ạ 
+    - [Hộp bút trong suốt](product) [giá](attr) sao vậy shop
+    - [Hộp bút trong suốt](product) [bán sao](attr) vậy shop
+    - [Hộp bút trong suốt](product) shop [bán sao](attr) ạ
+    - [Hộp bút trong suốt](product) [nhiêu tiền](attr) ạ
+    - xin [giá](attr) [Hộp bút trong suốt](product) 
+    - mình xin [giá](attr) [Hộp bút trong suốt](product)
+    - em xin [giá](attr) [Hộp bút trong suốt](product)
+    - cho mình xin [giá](attr) [Hộp bút trong suốt](product)
+    - cho e hỏi [Hộp bút trong suốt](product) [bao nhiêu](attr) vậy ạ
+    - [Bình giữ nhiệt](product) [giá](attr) sao vậy shop
+    - [Bình giữ nhiệt](product) [bán sao](attr) vậy shop
+    - [Bình giữ nhiệt](product) shop [bán sao](attr) ạ
+    - [Bình giữ nhiệt](product) [nhiêu tiền](attr) ạ
     - xin giá [Bình giữ nhiệt](product) 
-    - mình xin giá [Bình giữ nhiệt](product)
-    - em xin giá [Bình giữ nhiệt](product)
-    - cho mình xin giá [Bình giữ nhiệt](product)
-    - cho e hỏi [Bình giữ nhiệt](product) bao nhiêu vậy ạ
-    - [Xương rồng 3 màu](product) giá sao vậy shop
-    - [Xương rồng 3 màu](product) bán sao vậy shop
-    - [Xương rồng 3 màu](product) shop bán sao ạ
-    - [Xương rồng 3 màu](product) nhiêu tiền ạ
-    - xin giá [Xương rồng 3 màu](product) 
-    - mình xin giá [Xương rồng 3 màu](product)
-    - em xin giá [Xương rồng 3 màu](product)
-    - cho mình xin giá [Xương rồng 3 màu](product)
-    - cho e hỏi [Xương rồng 3 màu](product) bao nhiêu vậy ạ  
-    - [Xương rồng nhỏ](product) giá sao vậy shop
-    - [Xương rồng nhỏ](product) bán sao vậy shop
-    - [Xương rồng nhỏ](product) shop bán sao ạ
-    - [Xương rồng nhỏ](product) nhiêu tiền ạ
-    - xin giá [Xương rồng nhỏ](product) 
-    - mình xin giá [Xương rồng nhỏ](product)
-    - em xin giá [Xương rồng nhỏ](product)
-    - cho mình xin giá [Xương rồng nhỏ](product)
-    - cho e hỏi [Xương rồng nhỏ](product) bao nhiêu vậy ạ  
+    - mình xin [giá](attr) [Bình giữ nhiệt](product)
+    - em xin [giá](attr) [Bình giữ nhiệt](product)
+    - cho mình xin [giá](attr) [Bình giữ nhiệt](product)
+    - cho e hỏi [Bình giữ nhiệt](product) [bao nhiêu](attr) vậy ạ
+    - [Xương rồng 3 màu](product) [giá](attr) sao vậy shop
+    - [Xương rồng 3 màu](product) [bán sao](attr) vậy shop
+    - [Xương rồng 3 màu](product) shop [bán sao](attr) ạ
+    - [Xương rồng 3 màu](product) [nhiêu tiền](attr) ạ
+    - xin [giá](attr) [Xương rồng 3 màu](product) 
+    - mình xin [giá](attr) [Xương rồng 3 màu](product)
+    - em xin [giá](attr) [Xương rồng 3 màu](product)
+    - cho mình xin [giá](attr) [Xương rồng 3 màu](product)
+    - cho e hỏi [Xương rồng 3 màu](product) [bao nhiêu](attr) vậy ạ 
+
+- intent: ask_qty
+  examples: |
+    - [còn](attr_qty) không shop
+    - cái này [còn](attr_qty) không shop
+
 
 - intent: ask_size
   examples: |
-    - [Mô hình tượng đá](product) kích thước sao shop
-    - xin kích thước [Mô hình tượng đá](product)
-    - mình xin kích thước [Mô hình tượng đá](product)
-    - em xin kích thước [Mô hình tượng đá](product)
-    - cho mình xin kích thước [Mô hình tượng đá](product)
-    - [Hộp bút trong suốt](product) kích thước sao shop
-    - xin kích thước [Hộp bút trong suốt](product)
-    - mình xin kích thước [Hộp bút trong suốt](product)
-    - em xin kích thước [Hộp bút trong suốt](product)
-    - cho mình xin kích thước [Hộp bút trong suốt](product)
-    - [Bình giữ nhiệt](product) kích thước sao shop
-    - xin kích thước [Bình giữ nhiệt](product)
-    - mình xin kích thước [Bình giữ nhiệt](product)
-    - em xin kích thước [Bình giữ nhiệt](product)
-    - cho mình xin kích thước [Bình giữ nhiệt](product)
-    - [Xương rồng 3 màu](product) kích thước sao shop
-    - xin kích thước [Xương rồng 3 màu](product)
-    - mình xin kích thước [Xương rồng 3 màu](product)
-    - em xin kích thước [Xương rồng 3 màu](product)
-    - cho mình xin kích thước [Xương rồng 3 màu](product)
-    - [Xương rồng nhỏ](product) kích thước sao shop
-    - xin kích thước [Xương rồng nhỏ](product)
-    - mình xin kích thước [Xương rồng nhỏ](product)
-    - em xin kích thước [Xương rồng nhỏ](product)
-    - cho mình xin kích thước [Xương rồng nhỏ](product)
+    - [kích thước](attr_size) sao shop
+    - cái này [kích thước](attr_qty) sao shop
+    - mình xin [kích thước] với ạ
+
+- intent: ask_weight
+  examples: |
+    - [nặng](attr_weight) không ạ
+    - cái này [nặng](attr_weight) không shop
+    - [trọng lượng](attr_weight) khoảng bao nhiêu vậy ạ
+    - cái này [nặng](attr_weight) không shop
+    - cái này [nhẹ](attr_weight) không shop
+
+# - intent: ask_qty
+#   examples: |
+#     - [Mô hình tượng đá](product) [còn](attr_qty) không shop 
+#     - [Bình giữ nhiệt](product) [còn](attr_qty) không shop 
+#     - [Xương rồng 3 màu](product) [còn](attr_qty) không shop 
+
+
+# - intent: ask_price
+#   examples: |
+#     - [Mô hình tượng đá](product) giá sao vậy shop
+#     - [Mô hình tượng đá](product) bán sao vậy shop
+#     - [Mô hình tượng đá](product) shop bán sao ạ
+#     - [Mô hình tượng đá](product) nhiêu tiền ạ
+#     - xin giá [Mô hình tượng đá](product) 
+#     - mình xin giá [Mô hình tượng đá](product)
+#     - em xin giá [Mô hình tượng đá](product)
+#     - cho mình xin giá [Mô hình tượng đá](product)
+#     - cho e hỏi [Mô hình tượng đá](product) bao nhiêu vậy ạ 
+#     - [Hộp bút trong suốt](product) giá sao vậy shop
+#     - [Hộp bút trong suốt](product) bán sao vậy shop
+#     - [Hộp bút trong suốt](product) shop bán sao ạ
+#     - [Hộp bút trong suốt](product) nhiêu tiền ạ
+#     - xin giá [Hộp bút trong suốt](product) 
+#     - mình xin giá [Hộp bút trong suốt](product)
+#     - em xin giá [Hộp bút trong suốt](product)
+#     - cho mình xin giá [Hộp bút trong suốt](product)
+#     - cho e hỏi [Hộp bút trong suốt](product) bao nhiêu vậy ạ
+#     - [Bình giữ nhiệt](product) giá sao vậy shop
+#     - [Bình giữ nhiệt](product) bán sao vậy shop
+#     - [Bình giữ nhiệt](product) shop bán sao ạ
+#     - [Bình giữ nhiệt](product) nhiêu tiền ạ
+#     - xin giá [Bình giữ nhiệt](product) 
+#     - mình xin giá [Bình giữ nhiệt](product)
+#     - em xin giá [Bình giữ nhiệt](product)
+#     - cho mình xin giá [Bình giữ nhiệt](product)
+#     - cho e hỏi [Bình giữ nhiệt](product) bao nhiêu vậy ạ
+#     - [Xương rồng 3 màu](product) giá sao vậy shop
+#     - [Xương rồng 3 màu](product) bán sao vậy shop
+#     - [Xương rồng 3 màu](product) shop bán sao ạ
+#     - [Xương rồng 3 màu](product) nhiêu tiền ạ
+#     - xin giá [Xương rồng 3 màu](product) 
+#     - mình xin giá [Xương rồng 3 màu](product)
+#     - em xin giá [Xương rồng 3 màu](product)
+#     - cho mình xin giá [Xương rồng 3 màu](product)
+#     - cho e hỏi [Xương rồng 3 màu](product) bao nhiêu vậy ạ  
+#     - [Xương rồng nhỏ](product) giá sao vậy shop
+#     - [Xương rồng nhỏ](product) bán sao vậy shop
+#     - [Xương rồng nhỏ](product) shop bán sao ạ
+#     - [Xương rồng nhỏ](product) nhiêu tiền ạ
+#     - xin giá [Xương rồng nhỏ](product) 
+#     - mình xin giá [Xương rồng nhỏ](product)
+#     - em xin giá [Xương rồng nhỏ](product)
+#     - cho mình xin giá [Xương rồng nhỏ](product)
+#     - cho e hỏi [Xương rồng nhỏ](product) bao nhiêu vậy ạ  
+
+# - intent: ask_size
+#   examples: |
+#     - [Mô hình tượng đá](product) kích thước sao shop
+#     - xin kích thước [Mô hình tượng đá](product)
+#     - mình xin kích thước [Mô hình tượng đá](product)
+#     - em xin kích thước [Mô hình tượng đá](product)
+#     - cho mình xin kích thước [Mô hình tượng đá](product)
+#     - [Hộp bút trong suốt](product) kích thước sao shop
+#     - xin kích thước [Hộp bút trong suốt](product)
+#     - mình xin kích thước [Hộp bút trong suốt](product)
+#     - em xin kích thước [Hộp bút trong suốt](product)
+#     - cho mình xin kích thước [Hộp bút trong suốt](product)
+#     - [Bình giữ nhiệt](product) kích thước sao shop
+#     - xin kích thước [Bình giữ nhiệt](product)
+#     - mình xin kích thước [Bình giữ nhiệt](product)
+#     - em xin kích thước [Bình giữ nhiệt](product)
+#     - cho mình xin kích thước [Bình giữ nhiệt](product)
+#     - [Xương rồng 3 màu](product) kích thước sao shop
+#     - xin kích thước [Xương rồng 3 màu](product)
+#     - mình xin kích thước [Xương rồng 3 màu](product)
+#     - em xin kích thước [Xương rồng 3 màu](product)
+#     - cho mình xin kích thước [Xương rồng 3 màu](product)
+#     - [Xương rồng nhỏ](product) kích thước sao shop
+#     - xin kích thước [Xương rồng nhỏ](product)
+#     - mình xin kích thước [Xương rồng nhỏ](product)
+#     - em xin kích thước [Xương rồng nhỏ](product)
+#     - cho mình xin kích thước [Xương rồng nhỏ](product)
     
 # - intent: ask_product_detail
 #   examples: |
