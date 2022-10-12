@@ -1,102 +1,96 @@
-version: "2.0"
-
-# Bên NLU có những intent nào thì khai báo hết vào đây
-intents:
-  - greet
-  - give_name
-  - choice_category
-  - ask_price
-  - goodbye
-  - request
-  - ask_size
-  - ask_product
-  - ask_qty
-  - ask_weight
-
-
-actions:
-  # - action_detail_product ## Thông tin chi tiết sản phẩm
-  - action_ask_product ## Thông tin về giá
-  - action_ask_size ## Thông tin về kích thước
-  - action_show_product
-  - action_show_category
-  - ask_product
-  - action_ask_qty
-  - action_ask_weight
-
-entities:
-  - cust_sex
-  - cust_name
-  - product_category
-  - product
-  - attribute
-  - attr
-  - attr_qty
-  - attr_size
-  - attr_weight
-
-slots:
-  cust_sex:
-    auto_fill: true
-    type: text
-    initial_value: null
-  cust_name:
-    auto_fill: true
-    type: text
-  product_category:
-    auto_fill: true
-    type: text
-  product:
-    auto_fill: true
-    type: text
-  attr:
-    auto_fill: true
-    type: text
-  attr_qty:
-    auto_fill: true
-    type: text
-  attr_size:
-    auto_fill: true
-    type: text
-  attr_weight:
-    auto_fill: true
-    type: text
-
-responses:
-  utter_greet:
-    - text: "Art Decor chào Quý khách! Để tiện hỗ trợ, Quý khách vui lòng cung cấp tên sản phẩm cần tư vấn để bộ phận bán hàng nắm thông tin ạ!"
-
-  utter_rep_choice_product:
-    - text: "Shop gửi thông tin cụ thể để bạn tham khảo sản phẩm {product} này nhé!"
-  
-  utter_rep_price:
-    - text: "Sản phẩm này shop đang bán với giá {price} bạn nhé"
-    - text: "Sản phẩm này giá chỉ {price}"
-    - text: "Bên mình đang bán với giá {price}"
-  
-  utter_rep_size:
-    - text: "Sản phẩm có kích thước: {size} (tính bằng cm)"
-    - text: "Sản phẩm có kích thước mặc định là {size} (tính bằng cm)"
-    - text: "Shop gửi thông tin về kích thước để bạn tiện tham khảo nhé: {size} (tính bằng cm)"
-
-  utter_rep_qty:
-    - text: "Sản phẩm này còn bạn nhé"
-    - text: "Chào bạn, {product} bên mình còn nha bạn"
-
-  utter_rep_weight:
-    - text: "Sản phẩm này có cân nặng {weight} đó bạn"
-    - text: "Chào bạn, sản phẩm này có cân nặng {weight}"
-
-  utter_goodbye:
-    - text: "Art Decor cảm ơn Quý khách đã tin dùng, hẹn gặp lại Quý khách!"
-    - text: "Art Decor chúc quý khách một ngày tốt lành!"
-
-  utter_ask_request:
-    - text: "Bạn cần tư vấn về sản phẩm nào bên shop !"
-  
-  utter_givename:
-    - text: "Chào {cust_sex} {cust_name}. Shop có thể giúp gì cho {cust_name} ? "
-
+version: '2.0'
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+intents:
+- greet
+- ask_product
+- give_name
+- choice_category
+- ask_price
+- goodbye
+- request
+- ask_size
+- ask_qty
+- ask_weight
+entities:
+- attr
+- attr_qty
+- attr_size
+- attr_weight
+- attribute
+- cust_name_girl
+- cust_sex
+- product
+- product_category
+- cust_name_boy
+slots:
+  cust_sex:
+    type: text
+    auto_fill: true
+  cust_name_girl:
+    type: text
+    auto_fill: true
+  cust_name_boy:
+    type: text
+    auto_fill: true
+  product_category:
+    type: text
+    auto_fill: true
+  product:
+    type: text
+    auto_fill: true
+  attr:
+    type: text
+    auto_fill: true
+  attr_qty:
+    type: text
+    auto_fill: true
+  attr_size:
+    type: text
+    auto_fill: true
+  attr_weight:
+    type: text
+    auto_fill: true
+responses:
+  utter_greet:
+  - text: Art Decor chào Quý khách! Để tiện hỗ trợ, Quý khách vui lòng cung cấp tên sản phẩm cần tư vấn để bộ phận bán hàng nắm thông tin ạ!
+  utter_rep_choice_product:
+  - text: Shop gửi thông tin cụ thể để bạn tham khảo sản phẩm {product} này nhé!
+  utter_rep_price:
+  - text: Sản phẩm này shop đang bán với giá {price} bạn nhé
+  - text: Sản phẩm này giá chỉ {price}
+  - text: Bên mình đang bán với giá {price}
+  utter_rep_size:
+  - text: 'Sản phẩm có kích thước: {size} (tính bằng cm)'
+  - text: Sản phẩm có kích thước mặc định là {size} (tính bằng cm)
+  - text: 'Shop gửi thông tin về kích thước để bạn tiện tham khảo nhé: {size} (tính bằng cm)'
+  utter_rep_qty:
+  - text: Sản phẩm này còn bạn nhé
+  - text: Chào bạn, {product} bên mình còn nha bạn
+  utter_rep_weight:
+  - text: Sản phẩm này có cân nặng {weight} đó bạn
+  - text: Chào bạn, sản phẩm này có cân nặng {weight}
+  utter_goodbye:
+  - text: Art Decor cảm ơn Quý khách đã tin dùng, hẹn gặp lại Quý khách!
+  - text: Art Decor chúc quý khách một ngày tốt lành!
+  utter_ask_request:
+  - text: Bạn cần tư vấn về sản phẩm nào bên shop !
+  utter_givename:
+  # - text: 'Chào chị {cust_name_girl}. Shop có thể giúp gì cho {cust_name_girl} ? '
+  # - text: 'Art Decor xin chào chị {cust_name_girl}'
+  # - text: 'Chào anh {cust_name_boy}. Anh cần gì vậy ạ ?'
+  # - text: 'Cảm ơn anh {cust_name_boy} đã ghé thăm, anh cần tư vấn gì ạ !'
+    - text: Xin chào {cust_sex} {cust_name}
+    - text: Art Decor chào {cust_sex} {cust_name}
+actions:
+- action_ask_product
+- action_ask_qty
+- action_ask_size
+- action_ask_weight
+- action_show_category
+- action_show_product
+- ask_product
+- utter_ask_request
+- utter_greet
+- action_give_name

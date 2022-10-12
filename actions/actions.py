@@ -186,3 +186,22 @@ class action_ask_weight(Action):
 
         return []
 
+class action_give_name(Action):
+    
+    def name(self) -> Text:
+        return "action_give_name"
+    
+    def run(self, dispatcher: "CollectingDispatcher",
+            tracker: Tracker,
+            domain: "Dict[Text, Any]") -> List[Dict[Text, Any]]:
+        
+        cust_sex = tracker.get_slot("cust_sex")
+        cust_name_boy = tracker.get_slot("cust_name_boy")
+        cust_name_girl = tracker.get_slot("cust_name_girl")
+
+        if cust_sex == "Anh" or cust_sex == "anh":
+            dispatcher.utter_message("Xin chào {} {}".format(cust_sex, cust_name_boy))
+        else:
+            dispatcher.utter_message("Xin chào {} {}".format(cust_sex, cust_name_girl))
+            
+        return[]
