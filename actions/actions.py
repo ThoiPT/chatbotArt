@@ -200,8 +200,9 @@ class action_give_name(Action):
         cust_name_girl = tracker.get_slot("cust_name_girl")
 
         if cust_sex == "Anh" or cust_sex == "anh":
-            dispatcher.utter_message("Xin chào {} {}".format(cust_sex, cust_name_boy))
+            # dispatcher.utter_message("Xin chào {} {}".format(cust_sex, cust_name_boy))
+            dispatcher.utter_message(response="utter_givename", cust_sex=cust_sex, cust_name=cust_name_boy)
         else:
-            dispatcher.utter_message("Xin chào {} {}".format(cust_sex, cust_name_girl))
-            
+            # dispatcher.utter_message("Xin chào {} {}".format(cust_sex, cust_name_girl))
+            dispatcher.utter_message(response="utter_givename", cust_sex=cust_sex, cust_name=cust_name_girl)
         return[]

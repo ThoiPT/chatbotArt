@@ -6,7 +6,6 @@ intents:
 - greet
 - ask_product
 - give_name
-- choice_category
 - ask_price
 - goodbye
 - request
@@ -22,7 +21,6 @@ entities:
 - cust_name_girl
 - cust_sex
 - product
-- product_category
 - cust_name_boy
 slots:
   cust_sex:
@@ -32,9 +30,6 @@ slots:
     type: text
     auto_fill: true
   cust_name_boy:
-    type: text
-    auto_fill: true
-  product_category:
     type: text
     auto_fill: true
   product:
@@ -54,35 +49,32 @@ slots:
     auto_fill: true
 responses:
   utter_greet:
-  - text: Art Decor chào Quý khách! Để tiện hỗ trợ, Quý khách vui lòng cung cấp tên sản phẩm cần tư vấn để bộ phận bán hàng nắm thông tin ạ!
+  - text: Art Decor chào Quý khách! Quý khách cho em xin họ tên để tiện xưng hô và hỗ trợ ạ!
   utter_rep_choice_product:
-  - text: Shop gửi thông tin cụ thể để bạn tham khảo sản phẩm {product} này nhé!
+  - text: Shop gửi thông tin cụ thể để {cust_sex} tham khảo sản phẩm {product} này nhé!
   utter_rep_price:
-  - text: Sản phẩm này shop đang bán với giá {price} bạn nhé
-  - text: Sản phẩm này giá chỉ {price}
-  - text: Bên mình đang bán với giá {price}
+  - text: Dạ {product} bên shop đang bán với giá {price} đấy {cust_sex}
+  - text: Cảm ơn {cust_sex} đã ghé shop, bên em báo giá đến {cust_sex} sản phẩm {product} là {price}
+  - text: Em gửi {cust_sex} tham khảo ạ, hiện giá bán của sản phẩm {product} là {price}
   utter_rep_size:
   - text: 'Sản phẩm có kích thước: {size} (tính bằng cm)'
   - text: Sản phẩm có kích thước mặc định là {size} (tính bằng cm)
-  - text: 'Shop gửi thông tin về kích thước để bạn tiện tham khảo nhé: {size} (tính bằng cm)'
+  - text: 'Em gửi thông tin về kích thước {product} để {cust_sex} tiện tham khảo nhé: {size} (tính bằng cm)'
   utter_rep_qty:
-  - text: Sản phẩm này còn bạn nhé
-  - text: Chào bạn, {product} bên mình còn nha bạn
+  - text: Sản phẩm này còn {cust_sex} nhé !
+  - text: Chào {cust_sex}, {product} bên em còn nhiều lắm ạ
   utter_rep_weight:
-  - text: Sản phẩm này có cân nặng {weight} đó bạn
-  - text: Chào bạn, sản phẩm này có cân nặng {weight}
+  - text: 'Dạ em gửi {cust_sex} thông tin cân nặng của sản phẩm này: {weight}, có thể chênh lệch với thực tế 1 chút {cust_sex} nhé !'
+  - text: 'Dạ {cust_sex}, {product} bên em có cân nặng khoảng {weight}'
   utter_goodbye:
   - text: Art Decor cảm ơn Quý khách đã tin dùng, hẹn gặp lại Quý khách!
   - text: Art Decor chúc quý khách một ngày tốt lành!
   utter_ask_request:
   - text: Bạn cần tư vấn về sản phẩm nào bên shop !
   utter_givename:
-  # - text: 'Chào chị {cust_name_girl}. Shop có thể giúp gì cho {cust_name_girl} ? '
-  # - text: 'Art Decor xin chào chị {cust_name_girl}'
-  # - text: 'Chào anh {cust_name_boy}. Anh cần gì vậy ạ ?'
-  # - text: 'Cảm ơn anh {cust_name_boy} đã ghé thăm, anh cần tư vấn gì ạ !'
-    - text: Xin chào {cust_sex} {cust_name}
-    - text: Art Decor chào {cust_sex} {cust_name}
+    - text: Xin chào {cust_sex} {cust_name}, em có thể giúp gì cho {cust_sex} ạ !
+    - text: Art Decor chào {cust_sex} {cust_name}, cảm ơn {cust_sex} đã ghé thăm shop, {cust_sex} cần tư vấn gì không ạ !
+    - text: Chào {cust_name}, không biết em có thể giúp gì cho {cust_sex}
 actions:
 - action_ask_product
 - action_ask_qty

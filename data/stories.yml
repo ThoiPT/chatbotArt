@@ -8,34 +8,29 @@ stories:
     - action: utter_greet
     - intent: give_name
     - action: action_give_name
-# - story: Chào hỏi khách hàng 
-#   steps: 
-#       - intent: greet
-#       - action: utter_greet
-#       - action: utter_ask_request
 
 - story: Hỏi sản phẩm kèm giá
   steps:
       - intent: ask_product
       - action: action_ask_product
 
-# - story: Hỏi số lượng
-#   steps:
-#       - intent: ask_qty
-#       - action: action_ask_qty
+- story: Hỏi số lượng
+  steps:
+      - intent: ask_qty
+      - action: action_ask_qty
 
-# - story: Khách hàng hỏi kích thước sản phẩm
-#   steps:
-#     - intent: ask_size
-#     - action: action_ask_size
+- story: Khách hàng hỏi kích thước sản phẩm
+  steps:
+    - intent: ask_size
+    - action: action_ask_size
 
-# - story: Khách hàng hỏi cân nặng
-#   steps:
-#     - intent: ask_weight
-#     - action: action_ask_weight
+- story: Khách hàng hỏi cân nặng
+  steps:
+    - intent: ask_weight
+    - action: action_ask_weight
 
-# - story: Tạm biệt
-#   steps:
-#     - intent: goodbye
-#     - action: utter_goodbye
+- story: Tạm biệt
+  steps:
+    - intent: goodbye
+    - action: utter_goodbye
 
