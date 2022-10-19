@@ -9,11 +9,8 @@
 
 from typing import Any, Text, Dict, List
 #
-import mysql.connector
 from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
-from regex import S
-from sqlalchemy import null
 #
 #
 from actions.db_connect import DataProduct
@@ -194,15 +191,13 @@ class action_give_name(Action):
     def run(self, dispatcher: "CollectingDispatcher",
             tracker: Tracker,
             domain: "Dict[Text, Any]") -> List[Dict[Text, Any]]:
-        
-        cust_sex = tracker.get_slot("cust_sex")
+
         cust_name_boy = tracker.get_slot("cust_name_boy")
         cust_name_girl = tracker.get_slot("cust_name_girl")
 
-        if cust_sex == "Anh" or cust_sex == "anh":
-            # dispatcher.utter_message("Xin chào {} {}".format(cust_sex, cust_name_boy))
-            dispatcher.utter_message(response="utter_givename", cust_sex=cust_sex, cust_name=cust_name_boy)
+        if cust_name_boy:   
+            dispatcher.utter_message(response="utter_givename",  cust_name=cust_name_boy)
         else:
-            # dispatcher.utter_message("Xin chào {} {}".format(cust_sex, cust_name_girl))
-            dispatcher.utter_message(response="utter_givename", cust_sex=cust_sex, cust_name=cust_name_girl)
+            dispatcher.utter_message(response="utter_givename",  cust_name=cust_name_girl)
+        
         return[]

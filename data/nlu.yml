@@ -15,71 +15,67 @@ nlu:
     - mình cần tư vấn
     - cho mình hỏi xíu
     - xin chào shop
-- intent: ask_product
-  examples: |
-    - [Mô hình tượng đá](product) [giá](attr) sao vậy shop
-    - [Mô hình tượng đá](product) [bán sao](attr) vậy shop
-    - [Mô hình tượng đá](product) shop [bán sao](attr) ạ
-    - [Mô hình tượng đá](product) [nhiêu tiền](attr) ạ
-    - xin [giá](attr) [Mô hình tượng đá](product)
-    - mình xin [giá](attr) [Mô hình tượng đá](product)
-    - em xin [giá](attr) [Mô hình tượng đá](product)
-    - cho mình xin [giá](attr) [Mô hình tượng đá](product)
-    - cho e hỏi [Mô hình tượng đá](product) [bao nhiêu](attr) vậy ạ
-    - [Hộp bút trong suốt](product) [giá](attr) sao vậy shop
-    - [Hộp bút trong suốt](product) [bán sao](attr) vậy shop
-    - [Hộp bút trong suốt](product) shop [bán sao](attr) ạ
-    - [Hộp bút trong suốt](product) [nhiêu tiền](attr) ạ
-    - xin [giá](attr) [Hộp bút trong suốt](product)
-    - mình xin [giá](attr) [Hộp bút trong suốt](product)
-    - em xin [giá](attr) [Hộp bút trong suốt](product)
-    - cho mình xin [giá](attr) [Hộp bút trong suốt](product)
-    - cho e hỏi [Hộp bút trong suốt](product) [bao nhiêu](attr) vậy ạ
-    - [Bình giữ nhiệt](product) [giá](attr) sao vậy shop
-    - [Bình giữ nhiệt](product) [bán sao](attr) vậy shop
-    - [Bình giữ nhiệt](product) shop [bán sao](attr) ạ
-    - [Bình giữ nhiệt](product) [nhiêu tiền](attr) ạ
-    - xin giá [Bình giữ nhiệt](product)
-    - mình xin [giá](attr) [Bình giữ nhiệt](product)
-    - em xin [giá](attr) [Bình giữ nhiệt](product)
-    - cho mình xin [giá](attr) [Bình giữ nhiệt](product)
-    - cho e hỏi [Bình giữ nhiệt](product) [bao nhiêu](attr) vậy ạ
-    - [Xương rồng 3 màu](product) [giá](attr) sao vậy shop
-    - [Xương rồng 3 màu](product) [bán sao](attr) vậy shop
-    - [Xương rồng 3 màu](product) shop [bán sao](attr) ạ
-    - [Xương rồng 3 màu](product) [nhiêu tiền](attr) ạ
-    - xin [giá](attr) [Xương rồng 3 màu](product)
-    - mình xin [giá](attr) [Xương rồng 3 màu](product)
-    - em xin [giá](attr) [Xương rồng 3 màu](product)
-    - cho mình xin [giá](attr) [Xương rồng 3 màu](product)
-    - cho e hỏi [Xương rồng 3 màu](product) [bao nhiêu](attr) vậy ạ
-    - [mô hình](product) [bán sao](attr)
-    - [mô hình tượng đá](product) [bán sao](attr)
-- intent: ask_qty
-  examples: |
-    - [còn](attr_qty) không shop
-    - cái này [còn](attr_qty) không shop
-- intent: ask_size
-  examples: |
-    - [kích thước](attr_size) sao shop
-    - cái này [kích thước](attr_qty) sao shop
-    - mình xin [kích thước] với ạ
-- intent: ask_weight
-  examples: |
-    - [nặng](attr_weight) không ạ
-    - cái này [nặng](attr_weight) không shop
-    - [trọng lượng](attr_weight) khoảng bao nhiêu vậy ạ
-    - cái này [nhẹ](attr_weight) không shop
+# - intent: ask_product
+#   examples: |
+#     - [Mô hình tượng đá](product) [giá](attr) sao vậy shop
+#     - [Mô hình tượng đá](product) [bán sao](attr) vậy shop
+#     - [Mô hình tượng đá](product) shop [bán sao](attr) ạ
+#     - [Mô hình tượng đá](product) [nhiêu tiền](attr) ạ
+#     - xin [giá](attr) [Mô hình tượng đá](product)
+#     - mình xin [giá](attr) [Mô hình tượng đá](product)
+#     - em xin [giá](attr) [Mô hình tượng đá](product)
+#     - cho mình xin [giá](attr) [Mô hình tượng đá](product)
+#     - cho e hỏi [Mô hình tượng đá](product) [bao nhiêu](attr) vậy ạ
+#     - [Hộp bút trong suốt](product) [giá](attr) sao vậy shop
+#     - [Hộp bút trong suốt](product) [bán sao](attr) vậy shop
+#     - [Hộp bút trong suốt](product) shop [bán sao](attr) ạ
+#     - [Hộp bút trong suốt](product) [nhiêu tiền](attr) ạ
+#     - xin [giá](attr) [Hộp bút trong suốt](product)
+#     - mình xin [giá](attr) [Hộp bút trong suốt](product)
+#     - em xin [giá](attr) [Hộp bút trong suốt](product)
+#     - cho mình xin [giá](attr) [Hộp bút trong suốt](product)
+#     - cho e hỏi [Hộp bút trong suốt](product) [bao nhiêu](attr) vậy ạ
+#     - [Bình giữ nhiệt](product) [giá](attr) sao vậy shop
+#     - [Bình giữ nhiệt](product) [bán sao](attr) vậy shop
+#     - [Bình giữ nhiệt](product) shop [bán sao](attr) ạ
+#     - [Bình giữ nhiệt](product) [nhiêu tiền](attr) ạ
+#     - xin giá [Bình giữ nhiệt](product)
+#     - mình xin [giá](attr) [Bình giữ nhiệt](product)
+#     - em xin [giá](attr) [Bình giữ nhiệt](product)
+#     - cho mình xin [giá](attr) [Bình giữ nhiệt](product)
+#     - cho e hỏi [Bình giữ nhiệt](product) [bao nhiêu](attr) vậy ạ
+#     - [Xương rồng 3 màu](product) [giá](attr) sao vậy shop
+#     - [Xương rồng 3 màu](product) [bán sao](attr) vậy shop
+#     - [Xương rồng 3 màu](product) shop [bán sao](attr) ạ
+#     - [Xương rồng 3 màu](product) [nhiêu tiền](attr) ạ
+#     - xin [giá](attr) [Xương rồng 3 màu](product)
+#     - mình xin [giá](attr) [Xương rồng 3 màu](product)
+#     - em xin [giá](attr) [Xương rồng 3 màu](product)
+#     - cho mình xin [giá](attr) [Xương rồng 3 màu](product)
+#     - cho e hỏi [Xương rồng 3 màu](product) [bao nhiêu](attr) vậy ạ
+#     - [mô hình](product) [bán sao](attr)
+#     - [mô hình tượng đá](product) [bán sao](attr)
+# - intent: ask_qty
+#   examples: |
+#     - [còn](attr_qty) không shop
+#     - cái này [còn](attr_qty) không shop
+# - intent: ask_size
+#   examples: |
+#     - [kích thước](attr_size) sao shop
+#     - cái này [kích thước](attr_qty) sao shop
+#     - mình xin [kích thước] với ạ
+# - intent: ask_weight
+#   examples: |
+#     - [nặng](attr_weight) không ạ
+#     - cái này [nặng](attr_weight) không shop
+#     - [trọng lượng](attr_weight) khoảng bao nhiêu vậy ạ
+#     - cái này [nhẹ](attr_weight) không shop
 - intent: give_name
   examples: |
-    - [Chị](cust_sex) tên [Hằng](cust_name_girl)
-    - [chị](cust_sex) tên [Hằng](cust_name_girl)
-    - Gọi [Chị](cust_sex) là [Hằng](cust_name_girl)
-    - Gọi [chị](cust_sex) là [Hằng](cust_name_girl)
-    - [Anh](cust_sex) tên [Thời](cust_name_boy)
-    - [anh](cust_sex) tên [Thời](cust_name_boy)
-    - Gọi [Anh](cust_sex) là [Thời](cust_name_boy)
-    - Gọi [anh](cust_sex) là [Thời](cust_name_boy)
+    - Anh tên [Lê Phát Thời](cust_name_boy)
+    - [Lê Phát Thời](cust_name_boy)
+    - Chị tên [Lê Minh Thư](cust_name_girl)
+    - [Lê Minh Thư](cust_name_girl)
 - intent: goodbye
   examples: |
     - chào tạm biệt em

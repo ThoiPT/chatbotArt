@@ -3,9 +3,9 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
+- give_name
 - greet
 - ask_product
-- give_name
 - ask_price
 - goodbye
 - request
@@ -18,10 +18,10 @@ entities:
 - attr_size
 - attr_weight
 - attribute
+- cust_name_boy
 - cust_name_girl
 - cust_sex
 - product
-- cust_name_boy
 slots:
   cust_sex:
     type: text
@@ -32,57 +32,57 @@ slots:
   cust_name_boy:
     type: text
     auto_fill: true
-  product:
-    type: text
-    auto_fill: true
-  attr:
-    type: text
-    auto_fill: true
-  attr_qty:
-    type: text
-    auto_fill: true
-  attr_size:
-    type: text
-    auto_fill: true
-  attr_weight:
-    type: text
-    auto_fill: true
+  # product:
+  #   type: text
+  #   auto_fill: true
+  # attr:
+  #   type: text
+  #   auto_fill: true
+  # attr_qty:
+  #   type: text
+  #   auto_fill: true
+  # attr_size:
+  #   type: text
+  #   auto_fill: true
+  # attr_weight:
+  #   type: text
+  #   auto_fill: true
 responses:
   utter_greet:
   - text: Art Decor chào Quý khách! Quý khách cho em xin họ tên để tiện xưng hô và hỗ trợ ạ!
-  utter_rep_choice_product:
-  - text: Shop gửi thông tin cụ thể để {cust_sex} tham khảo sản phẩm {product} này nhé!
-  utter_rep_price:
-  - text: Dạ {product} bên shop đang bán với giá {price} đấy {cust_sex}
-  - text: Cảm ơn {cust_sex} đã ghé shop, bên em báo giá đến {cust_sex} sản phẩm {product} là {price}
-  - text: Em gửi {cust_sex} tham khảo ạ, hiện giá bán của sản phẩm {product} là {price}
-  utter_rep_size:
-  - text: 'Sản phẩm có kích thước: {size} (tính bằng cm)'
-  - text: Sản phẩm có kích thước mặc định là {size} (tính bằng cm)
-  - text: 'Em gửi thông tin về kích thước {product} để {cust_sex} tiện tham khảo nhé: {size} (tính bằng cm)'
-  utter_rep_qty:
-  - text: Sản phẩm này còn {cust_sex} nhé !
-  - text: Chào {cust_sex}, {product} bên em còn nhiều lắm ạ
-  utter_rep_weight:
-  - text: 'Dạ em gửi {cust_sex} thông tin cân nặng của sản phẩm này: {weight}, có thể chênh lệch với thực tế 1 chút {cust_sex} nhé !'
-  - text: 'Dạ {cust_sex}, {product} bên em có cân nặng khoảng {weight}'
+  # utter_rep_choice_product:
+  # - text: Shop gửi thông tin cụ thể để {cust_sex} tham khảo sản phẩm {product} này nhé!
+  # utter_rep_price:
+  # - text: Dạ {product} bên shop đang bán với giá {price} đấy {cust_sex}
+  # - text: Cảm ơn {cust_sex} đã ghé shop, bên em báo giá đến {cust_sex} sản phẩm {product} là {price}
+  # - text: Em gửi {cust_sex} tham khảo ạ, hiện giá bán của sản phẩm {product} là {price}
+  # utter_rep_size:
+  # - text: 'Sản phẩm có kích thước: {size} (tính bằng cm)'
+  # - text: Sản phẩm có kích thước mặc định là {size} (tính bằng cm)
+  # - text: 'Em gửi thông tin về kích thước {product} để {cust_sex} tiện tham khảo nhé: {size} (tính bằng cm)'
+  # utter_rep_qty:
+  # - text: Sản phẩm này còn {cust_sex} nhé !
+  # - text: Chào {cust_sex}, {product} bên em còn nhiều lắm ạ
+  # utter_rep_weight:
+  # - text: 'Dạ em gửi {cust_sex} thông tin cân nặng của sản phẩm này: {weight}, có thể chênh lệch với thực tế 1 chút {cust_sex} nhé !'
+  # - text: Dạ {cust_sex}, {product} bên em có cân nặng khoảng {weight}
   utter_goodbye:
   - text: Art Decor cảm ơn Quý khách đã tin dùng, hẹn gặp lại Quý khách!
   - text: Art Decor chúc quý khách một ngày tốt lành!
   utter_ask_request:
   - text: Bạn cần tư vấn về sản phẩm nào bên shop !
   utter_givename:
-    - text: Xin chào {cust_sex} {cust_name}, em có thể giúp gì cho {cust_sex} ạ !
-    - text: Art Decor chào {cust_sex} {cust_name}, cảm ơn {cust_sex} đã ghé thăm shop, {cust_sex} cần tư vấn gì không ạ !
-    - text: Chào {cust_name}, không biết em có thể giúp gì cho {cust_sex}
+  - text: Xin chào {cust_name}, em có thể giúp gì không ạ !
+  - text: Art Decor xin chào quý khách, cảm ơn {cust_name} đã ghé thăm shop, mình có cần em tư vấn gì không ạ !
+  - text: Chào {cust_name}, không biết em có thể giúp gì cho Quý khách
 actions:
 - action_ask_product
 - action_ask_qty
 - action_ask_size
 - action_ask_weight
+- action_give_name
 - action_show_category
 - action_show_product
 - ask_product
 - utter_ask_request
 - utter_greet
-- action_give_name
